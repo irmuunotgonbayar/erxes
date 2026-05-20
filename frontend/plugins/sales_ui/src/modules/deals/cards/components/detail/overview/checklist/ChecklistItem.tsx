@@ -12,6 +12,7 @@ import CircularProgressbar from '@/deals/components/common/CircularProgressbar';
 import { IconTrash } from '@tabler/icons-react';
 import SortableList from '@/deals/components/common/SortableList';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ChecklistItem = ({
   item,
@@ -36,6 +37,8 @@ const ChecklistItem = ({
   const { confirm } = useConfirm();
 
   const checkedCount = items.filter((i) => i.isChecked).length;
+
+  const { t } = useTranslation('sales');
 
   useEffect(() => {
     if (error) {
@@ -167,7 +170,7 @@ const ChecklistItem = ({
           <Button
             variant="destructive"
             onClick={(e) => onDeleteChecklist(e, item._id)}
-            title="Delete checklist"
+            title={t('delete-checklist')}
             size="sm"
             onPointerDown={(e) => e.stopPropagation()}
             onPointerUp={(e) => e.stopPropagation()}

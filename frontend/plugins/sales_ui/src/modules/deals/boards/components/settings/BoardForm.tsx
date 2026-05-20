@@ -9,6 +9,7 @@ import { IconPlus } from '@tabler/icons-react';
 import { Button, Form, Input, Sheet, Skeleton, Spinner, toast, useQueryState } from 'erxes-ui';
 import React from 'react';
 import { SubmitHandler } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 export const BoardForm = () => {
   const [boardId, setBoardId] = useQueryState('boardId');
@@ -52,6 +53,8 @@ export const BoardForm = () => {
     [addBoard, editBoard, boardId, handleClose],
   );
 
+  const { t } = useTranslation('sales');
+
   return (
     <Sheet
       open={open}
@@ -93,12 +96,12 @@ export const BoardForm = () => {
                   name="name"
                   render={({ field }) => (
                     <Form.Item>
-                      <Form.Label>Board Name</Form.Label>
+                      <Form.Label>{t('board-name')}</Form.Label>
                       <Form.Control>
                         <Input
                           {...field}
                           type="text"
-                          placeholder="Enter board name"
+                          placeholder={t('enter-board-name')}
                           className="input"
                           value={field.value || boardDetail?.name || ''}
                         />
@@ -111,7 +114,7 @@ export const BoardForm = () => {
             </Sheet.Content>
             <Sheet.Footer>
               <Button variant={'ghost'} onClick={handleClose}>
-                Cancel
+                {t('cancel')}
               </Button>
               <Button type="submit" disabled={addLoading || editLoading}>
                 {addLoading || editLoading ? <Spinner /> : 'Save'}

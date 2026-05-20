@@ -37,6 +37,7 @@ import { IconFolderCancel } from '@tabler/icons-react';
 import { Item } from './Item';
 import { List } from './List';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 
 export interface Props {
   activationConstraint?: PointerActivationConstraint;
@@ -78,6 +79,8 @@ export interface Props {
   }): React.CSSProperties;
   isDisabled?(id: UniqueIdentifier): boolean;
 }
+
+const { t } = useTranslation('sales');
 
 const dropAnimationConfig: DropAnimation = {
   sideEffects: defaultDropAnimationSideEffects({
@@ -276,7 +279,7 @@ export function Sortable({
           className="flex flex-col w-full py-4 h-48 justify-center items-center"
         >
           <IconFolderCancel />
-          <p className="text-muted-foreground pt-2">No items found.</p>
+          <p className="text-muted-foreground pt-2">{t('no-item-found')}</p>
         </div>
       )}
       {useDragOverlay

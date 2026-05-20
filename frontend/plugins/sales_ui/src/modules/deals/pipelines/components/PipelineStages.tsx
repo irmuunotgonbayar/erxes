@@ -11,11 +11,17 @@ import { IconPlus } from '@tabler/icons-react';
 import PipelineStageItem from './PipelineStageItem';
 import { Spinner } from 'erxes-ui';
 import { useFieldArray } from 'react-hook-form';
+import { T } from 'react-router/dist/development/fog-of-war-oa9CGk10';
+import { useTranslation } from 'react-i18next';
+
 
 const props: Partial<SortableProps> = {
   strategy: verticalListSortingStrategy,
   itemCount: 10,
 };
+
+const { t } = useTranslation('sales');
+
 
 type Props = {
   form: any;
@@ -74,7 +80,7 @@ const PipelineStages = ({ form, stagesLoading }: Props) => {
         className="flex gap-2 items-center shadow-xs p-4 rounded-md cursor-pointer hover:shadow-sm hover:text-primary transition-all duration-200"
         onClick={onStageAdd}
       >
-        <IconPlus /> Add another stage
+        <IconPlus /> {t('add-another-stage')}
       </div>
     </div>
   );

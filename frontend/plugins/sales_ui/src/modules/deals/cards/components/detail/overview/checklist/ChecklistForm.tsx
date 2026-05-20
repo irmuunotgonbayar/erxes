@@ -9,6 +9,7 @@ import { useChecklistsAdd } from '@/deals/cards/hooks/useChecklists';
 import { useForm } from 'react-hook-form';
 import { useRef } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslation } from 'react-i18next';
 
 const ChecklistForm = () => {
   const form = useForm<ChecklistFormType>({
@@ -17,6 +18,8 @@ const ChecklistForm = () => {
 
   const { checklistsAdd, loading } = useChecklistsAdd();
   const closeRef = useRef<HTMLButtonElement>(null);
+
+  const { t } = useTranslation('sales');
 
   const onSubmit = (data: ChecklistFormType) => {
     checklistsAdd({
@@ -45,7 +48,7 @@ const ChecklistForm = () => {
         className="flex flex-col h-full overflow-hidden"
       >
         <h3 className="text-sm font-semibold text-gray-600 border-b pb-2">
-          Add Checklist
+          {t('add-checklist')}
         </h3>
         <div className="flex-auto overflow-hidden py-2 px-1">
           <Form.Field
@@ -53,7 +56,7 @@ const ChecklistForm = () => {
             name="title"
             render={({ field }) => (
               <Form.Item>
-                <Form.Label>NAME</Form.Label>
+                <Form.Label>{t('name')}</Form.Label>
                 <Form.Control>
                   <Input {...field} className="" />
                 </Form.Control>
@@ -70,7 +73,7 @@ const ChecklistForm = () => {
               variant="ghost"
               className="bg-background hover:bg-background/90"
             >
-              Cancel
+              {t('cancel')}
             </Button>
           </Popover.Close>
           <Button

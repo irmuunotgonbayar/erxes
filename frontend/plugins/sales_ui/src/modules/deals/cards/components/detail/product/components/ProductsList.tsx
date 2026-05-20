@@ -12,6 +12,7 @@ import { onLocalChangeAtom } from '../productTableAtom';
 import { useDealsCreateProductsData } from '../hooks/useDealsCreateProductsData';
 import { useDealsEdit } from '@/deals/cards/hooks/useDeals';
 import { useProductCalculations } from '../hooks/useProductCalculations';
+import { useTranslation } from 'react-i18next';
 
 const ProductsList = ({
   products,
@@ -188,6 +189,8 @@ const ProductsList = ({
     });
   };
 
+  const { t } = useTranslation('sales');
+
   return (
     <div className="space-y-4">
       <Filter id="product-filter">
@@ -199,7 +202,7 @@ const ProductsList = ({
             onChange={(e) => setVatPercent(Number.parseInt(e.target.value))}
           />
           <Button className="ml-3" onClick={() => applyVat()}>
-            Apply VAT
+            {t('apply-vat')}
           </Button>
         </div>
         <div className="w-full mt-3 flex items-center justify-between">
@@ -219,7 +222,7 @@ const ProductsList = ({
           </div>
           <div className="flex items-center gap-6">
             <div>
-              <Label className="mr-3">Advanced view</Label>
+              <Label className="mr-3">{t('advanced-view')}</Label>
               <Switch
                 checked={showAdvancedView}
                 onCheckedChange={(checked) => {

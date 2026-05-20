@@ -7,10 +7,15 @@ import { useForm } from 'react-hook-form';
 import { useSelectBoardsContext } from '@/deals/context/DealContext';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslation } from 'react-i18next';
+import { T } from 'react-router/dist/development/fog-of-war-oa9CGk10';
+
 
 const formSchema = z.object({
   title: z.string().min(1),
 });
+
+const { t } = useTranslation('sales');
 
 export const CreateBoardForm = () => {
   const { newBoardName, setNewBoardName } = useSelectBoardsContext();
@@ -55,7 +60,7 @@ export const CreateBoardForm = () => {
             name="title"
             render={({ field }) => (
               <Form.Item>
-                <Form.Label>Title</Form.Label>
+                <Form.Label>{t('title')}</Form.Label>
                 <Input {...field} />
                 <Form.Message />
               </Form.Item>
@@ -94,7 +99,7 @@ export function SelectBoardsCreateContainer({
           className="pl-1 gap-1"
         >
           <IconChevronLeft />
-          <h6>Create new board</h6>
+          <h6>{t('create-new-board')}</h6>
         </Button>
       </div>
       <Separator />

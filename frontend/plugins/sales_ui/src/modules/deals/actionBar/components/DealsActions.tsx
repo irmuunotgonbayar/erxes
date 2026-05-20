@@ -15,6 +15,8 @@ import {
   useDealsRemove,
   useDealsWatch,
 } from '@/deals/cards/hooks/useDeals';
+import { useTranslation } from 'react-i18next';
+
 
 export const DealsActions = ({
   deals,
@@ -108,6 +110,8 @@ export const DealsActions = ({
     return 'Watch (Mixed)';
   };
 
+  const { t } = useTranslation('sales');
+
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
@@ -117,13 +121,13 @@ export const DealsActions = ({
           disabled={isLoading}
         >
           {isSingle ? <IconDotsVertical /> : <IconEdit />}
-          Edit
+          {t('edit')}
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content className="w-48 min-w-fit!">
         <DropdownMenu.Item onClick={handleCopy} disabled={isLoading}>
           <IconCopy />
-          Copy {isSingle ? '' : `(${count})`}
+          {t('copy')} {isSingle ? '' : `(${count})`}
         </DropdownMenu.Item>
 
         <DropdownMenu.Item onClick={handleWatch} disabled={isLoading}>
@@ -133,7 +137,7 @@ export const DealsActions = ({
 
         <DropdownMenu.Item onClick={handlePrint} disabled={isLoading}>
           <IconPrinter />
-          Print document
+          {t('print-document')}
         </DropdownMenu.Item>
 
         <DropdownMenu.Item onClick={handleArchive} disabled={isLoading}>
@@ -148,7 +152,7 @@ export const DealsActions = ({
             className="text-red-700 focus:text-red-700"
           >
             <IconTrash className="text-red-700" />
-            Remove {isSingle ? '' : `(${count})`}
+            {t('remove')} {isSingle ? '' : `(${count})`}
           </DropdownMenu.Item>
         )}
       </DropdownMenu.Content>

@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { IAttachment } from '@/deals/types/attachments';
 import { useAttachmentContext } from './AttachmentContext';
 import { useDealsContext } from '@/deals/context/DealContext';
+import { useTranslation } from 'react-i18next';
 
 const MediaAttachments = ({ attachments }: { attachments: IAttachment[] }) => {
   const [open, setOpen] = useState(false);
@@ -19,6 +20,8 @@ const MediaAttachments = ({ attachments }: { attachments: IAttachment[] }) => {
   const { handleRemoveImage, removingUrl } = useAttachmentContext();
 
   const currentAttachment = attachments[currentIndex];
+
+  const { t } = useTranslation('sales');
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -44,7 +47,7 @@ const MediaAttachments = ({ attachments }: { attachments: IAttachment[] }) => {
   return (
     <div className="py-4 px-8">
       <h4 className="uppercase text-sm text-gray-500 pb-4">
-        Media Attachments
+        {t('media-attachments')}
       </h4>
       <div className="relative">
         <div className="overflow-x-auto flex gap-4">

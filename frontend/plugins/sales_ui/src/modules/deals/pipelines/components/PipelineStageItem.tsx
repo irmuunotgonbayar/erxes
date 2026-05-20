@@ -15,6 +15,8 @@ import { Controller } from 'react-hook-form';
 import { IStage } from '@/deals/types/stages';
 import { SelectMember, SelectDepartments } from 'ui-modules';
 import { SortableItemProps } from '@/deals/components/common/Item';
+import { useTranslation } from 'react-i18next';
+
 import { useState } from 'react';
 
 interface Props extends SortableItemProps {
@@ -57,6 +59,7 @@ const PipelineStageItem = (props: Props) => {
   } = props;
 
   const [showExtraFields, setShowExtraFields] = useState(false);
+  const { t } = useTranslation('sales');
 
   return (
     <div
@@ -115,7 +118,7 @@ const PipelineStageItem = (props: Props) => {
           <div className="flex-1">
             <div className="flex flex-wrap gap-3 justify-between">
               <Form.Item className="flex-1">
-                <Form.Label>Stage Name</Form.Label>
+                <Form.Label>{t('stage-name')}</Form.Label>
                 <Form.Control>
                   <Controller
                     name={`stages.${index}.name`}
@@ -133,7 +136,7 @@ const PipelineStageItem = (props: Props) => {
                 <Form.Message />
               </Form.Item>
               <Form.Item className="flex-1">
-                <Form.Label>Probability</Form.Label>
+                <Form.Label>{t('probability')}</Form.Label>
                 <Controller
                   name={`stages.${index}.probability`}
                   control={control}
@@ -155,7 +158,7 @@ const PipelineStageItem = (props: Props) => {
                 />
               </Form.Item>
               <Form.Item className="flex-1">
-                <Form.Label>Status</Form.Label>
+                <Form.Label>{t('status')}</Form.Label>
                 <Controller
                   name={`stages.${index}.status`}
                   control={control}
@@ -178,7 +181,7 @@ const PipelineStageItem = (props: Props) => {
               </Form.Item>
 
               <Form.Item className="flex-1">
-                <Form.Label>Visibility</Form.Label>
+                <Form.Label>{t('visibility')}</Form.Label>
                 <Controller
                   name={`stages.${index}.visibility`}
                   control={control}
@@ -203,7 +206,7 @@ const PipelineStageItem = (props: Props) => {
             {showExtraFields && (
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-2">
                 <Form.Item>
-                  <Form.Label>Code</Form.Label>
+                  <Form.Label>{t('code')}</Form.Label>
                   <Form.Control>
                     <Controller
                       name={`stages.${index}.code`}
@@ -222,7 +225,7 @@ const PipelineStageItem = (props: Props) => {
                 </Form.Item>
 
                 <Form.Item>
-                  <Form.Label>Age</Form.Label>
+                  <Form.Label>{t('age')}</Form.Label>
                   <Form.Control>
                     <Controller
                       name={`stages.${index}.age`}
@@ -249,7 +252,7 @@ const PipelineStageItem = (props: Props) => {
                 </Form.Item>
 
                 <Form.Item>
-                  <Form.Label>Can move members</Form.Label>
+                  <Form.Label>{t('can-move-members')}</Form.Label>
                   <Form.Control>
                     <Controller
                       name={`stages.${index}.canMoveMemberIds`}
@@ -268,7 +271,7 @@ const PipelineStageItem = (props: Props) => {
                 </Form.Item>
 
                 <Form.Item>
-                  <Form.Label>Can edit members</Form.Label>
+                  <Form.Label>{t('can-edit-members')}</Form.Label>
                   <Form.Control>
                     <Controller
                       name={`stages.${index}.canEditMemberIds`}
@@ -287,7 +290,7 @@ const PipelineStageItem = (props: Props) => {
                 </Form.Item>
 
                 <Form.Item className="col-span-2">
-                  <Form.Label>Members</Form.Label>
+                  <Form.Label>{t('members')}</Form.Label>
                   <Form.Control>
                     <Controller
                       name={`stages.${index}.memberIds`}
@@ -305,7 +308,7 @@ const PipelineStageItem = (props: Props) => {
                 </Form.Item>
 
                 <Form.Item className="col-span-2">
-                  <Form.Label>Departments</Form.Label>
+                  <Form.Label>{t('departments')}</Form.Label>
                   <Form.Control>
                     <Controller
                       name={`stages.${index}.departmentIds`}
@@ -338,7 +341,7 @@ const PipelineStageItem = (props: Props) => {
                     />
                   </Form.Control>
                   <Label htmlFor={`defaultTick-${index}`}>
-                    Select products by default
+                    {t('Select products by default')}
                   </Label>
                 </Form.Item>
               </div>

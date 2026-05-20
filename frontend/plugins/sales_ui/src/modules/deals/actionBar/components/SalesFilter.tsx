@@ -18,6 +18,7 @@ import { IDeal } from '@/deals/types/deals';
 import { SalesFilterState } from '@/deals/actionBar/types/actionBarTypes';
 import { SelectLabels } from '@/deals/components/common/filters/SelectLabel';
 import { SelectPriority } from '@/deals/components/common/filters/SelectPriority';
+import { useTranslation } from 'react-i18next';
 
 export const SalesFilter = () => {
   const [queries] = useMultiQueryState<SalesFilterState>([
@@ -94,6 +95,8 @@ export const filterDeals = (deals: IDeal[], filters: SalesFilterState) => {
 };
 
 const SalesFilterBar = ({ queries }: { queries: SalesFilterState }) => {
+
+  const { t } = useTranslation('sales');
   const {
     assignedUserIds,
     branchIds,
@@ -111,21 +114,21 @@ const SalesFilterBar = ({ queries }: { queries: SalesFilterState }) => {
       <Filter.BarItem queryKey="createdStartDate">
         <Filter.BarName>
           <IconCalendarPlus />
-          Date created
+          {t('date-created')}
         </Filter.BarName>
         <Filter.Date filterKey="createdStartDate" />
       </Filter.BarItem>
       <Filter.BarItem queryKey="startDateStartDate">
         <Filter.BarName>
           <IconCalendarBolt />
-          Start date
+          {t('start-date')}
         </Filter.BarName>
         <Filter.Date filterKey="startDateStartDate" />
       </Filter.BarItem>
       <Filter.BarItem queryKey="startDateEndDate">
         <Filter.BarName>
           <IconCalendarX />
-          End date
+          {t('end-date')}
         </Filter.BarName>
         <Filter.Date filterKey="startDateEndDate" />
       </Filter.BarItem>
@@ -191,6 +194,7 @@ const SalesFilterBar = ({ queries }: { queries: SalesFilterState }) => {
 };
 
 const SalesFilterView = () => {
+  const { t } = useTranslation('sales');
   return (
     <>
       <Filter.View>
@@ -219,15 +223,15 @@ const SalesFilterView = () => {
             <Command.Separator className="my-1" />
             <Filter.Item value="createdStartDate">
               <IconCalendarPlus />
-              Date created
+              {t('date-created')}
             </Filter.Item>
             <Filter.Item value="startDateStartDate">
               <IconCalendarBolt />
-              Start date
+              {t('start-date')}
             </Filter.Item>
             <Filter.Item value="startDateEndDate">
               <IconCalendarX />
-              End date
+              {t('end-date')}
             </Filter.Item>
           </Command.List>
         </Command>

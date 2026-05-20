@@ -43,10 +43,14 @@ import {
   useFilterContext,
   useQueryState,
 } from 'erxes-ui';
+import { useTranslation } from 'react-i18next';
+import { T } from 'react-router/dist/development/fog-of-war-oa9CGk10';
 
 export const SelectLabelsContext = createContext<ISelectLabelContext | null>(
   null,
 );
+
+const { t } = useTranslation('sales');
 
 export const useSelectLabelsContext = () => {
   const context = useContext(SelectLabelsContext);
@@ -194,6 +198,7 @@ export const SelectLabelsCommand = ({ targetId }: { targetId?: string }) => {
   const [editLabelId, setEditLabelId] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
 
+
   if (showForm) {
     return (
       <>
@@ -202,7 +207,7 @@ export const SelectLabelsCommand = ({ targetId }: { targetId?: string }) => {
             onClick={() => setShowForm(false)}
             className="text-sm text-blue-600 hover:underline"
           >
-            Back
+            {t('back')}
           </button>
           <h3 className="text-sm font-semibold text-gray-600">
             {editLabelId ? 'Edit Label' : 'Add Label'}
@@ -236,7 +241,7 @@ export const SelectLabelsCommand = ({ targetId }: { targetId?: string }) => {
           }}
         >
           <IconPlus size={16} />
-          Create a new label
+          {t('create-new-label')}
         </Button>
       </Command>
     );
@@ -301,7 +306,7 @@ export const SelectLabelsCommand = ({ targetId }: { targetId?: string }) => {
           }}
         >
           <IconPlus size={16} />
-          Create a new label
+          {t('create-new-label')}
         </Button>
       </Command>
     );
@@ -335,7 +340,7 @@ export const SelectLabelsValue = () => {
   if ((labelIds || [])?.length !== 0) {
     return (
       <span className="text-muted-foreground flex items-center gap-1 -ml-1">
-        <IconLabel className="w-4 h-4 text-gray-400" /> Label +
+        <IconLabel className="w-4 h-4 text-gray-400" /> {t('label')} +
         {(labelIds || []).length}
       </span>
     );
@@ -428,7 +433,7 @@ export const SelectLabelsCommandbarItem = ({
         <Button variant={'secondary'} asChild>
           <RecordTableInlineCell.Trigger>
             <IconLabel />
-            Label
+            {t('label')}
           </RecordTableInlineCell.Trigger>
         </Button>
         <RecordTableInlineCell.Content className="w-96">

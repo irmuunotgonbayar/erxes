@@ -10,6 +10,8 @@ import { GET_CHECKLIST_DETAIL } from '~/modules/deals/graphql/queries/ChecklistQ
 import { GET_STAGE_DETAIL } from '~/modules/deals/graphql/queries/StagesQueries';
 import { IChecklistItem } from '@/deals/types/checklists';
 import { useDealsAdd } from '@/deals/cards/hooks/useDeals';
+import { useTranslation } from 'react-i18next';
+
 
 const ChecklistItemContent = ({
   item,
@@ -138,6 +140,8 @@ const ChecklistItemContent = ({
     });
   };
 
+  const { t } = useTranslation('sales');
+
   return (
     <div
       key={item._id}
@@ -189,7 +193,7 @@ const ChecklistItemContent = ({
               className="flex items-center gap-2 px- py-2 hover:bg-gray-100 w-full text-sm"
             >
               <IconRefresh size={16} className="ml-3" />
-              Convert to deal
+              {t('convert-to-deal')}
             </button>
             <button
               onClick={() => {
@@ -198,7 +202,7 @@ const ChecklistItemContent = ({
               className="flex items-center gap-2 px-3 py-2 text-red-600 hover:bg-red-50 w-full text-sm"
             >
               <IconTrash size={16} />
-              Delete
+              {t('delete')}
             </button>
           </div>
         )}

@@ -16,6 +16,7 @@ import {
 } from '@tabler/icons-react';
 import { type ApolloError } from '@apollo/client';
 import { useDealsEdit } from '@/deals/cards/hooks/useDeals';
+import { useTranslation } from 'react-i18next';
 
 export enum DateSelectVariant {
   TABLE = 'table',
@@ -33,6 +34,8 @@ interface DateSelectContextType {
   error?: ApolloError;
   variant: DateSelectVariant;
 }
+
+const { t } = useTranslation('sales');
 
 const DateSelectContext = React.createContext<DateSelectContextType | null>(
   null,
@@ -196,7 +199,7 @@ export const DateSelectDealRoot = ({
           <DateSelectTrigger>
             <div className="text-xs bg-red-50 text-red-400 px-2 py-1 rounded flex items-center gap-1">
               <IconAlertCircleFilled className="size-4" />
-              Ended {endedDiff} {endedDiff === 1 ? 'day' : 'days'} ago{' '}
+              {t('ended')} {endedDiff} {endedDiff === 1 ? 'day' : 'days'} {t('ago')}{' '}
             </div>
           </DateSelectTrigger>
           <Content className="w-fit" onClick={(e) => e.stopPropagation()}>

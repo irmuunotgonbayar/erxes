@@ -10,6 +10,7 @@ import { IDeal } from '../../types/deals';
 import { IconLayoutBoard } from '@tabler/icons-react';
 import { useAtomValue } from 'jotai';
 import { useDealsEdit } from '@/deals/cards/hooks/useDeals';
+import { useTranslation } from 'react-i18next';
 
 interface MoveDealDropdownProps {
   deal: IDeal;
@@ -25,6 +26,7 @@ export const MoveDealDropdown = memo(function MoveDealDropdown({
 
   const pipelineId = pipeline.pipelineId || deal.pipeline?._id;
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation('sales');
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
@@ -35,7 +37,7 @@ export const MoveDealDropdown = memo(function MoveDealDropdown({
           onClick={(e) => e.stopPropagation()}
         >
           <IconLayoutBoard size={16} />
-          Move Deal
+          {t('move-deal')}
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content className="w-62 py-2">

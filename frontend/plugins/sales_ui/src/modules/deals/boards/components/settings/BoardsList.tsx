@@ -6,6 +6,7 @@ import { useEffect, useMemo } from 'react';
 
 import { BoardForm } from './BoardForm';
 import { IBoard } from '@/deals/types/boards';
+import { useTranslation } from 'react-i18next';
 
 export const BoardsList = () => {
   const navigate = useNavigate();
@@ -28,12 +29,14 @@ export const BoardsList = () => {
     }
   }, [boards, loading, activeBoardId, navigate, location, searchParams]);
 
+  const { t } = useTranslation('sales');
+
   return (
     <Sidebar collapsible="none" className="flex-none border-r">
       <Sidebar.Group>
         <div className="w-full flex items-center justify-between">
           <Sidebar.GroupLabel>
-            Boards ({boards?.length || 0})
+            {t('boards')} ({boards?.length || 0})
           </Sidebar.GroupLabel>
           <BoardForm />
         </div>

@@ -2,6 +2,9 @@ import { Filter, Popover } from 'erxes-ui';
 
 import ChecklistForm from './ChecklistForm';
 import { IconListCheck } from '@tabler/icons-react';
+import { useTranslation } from 'react-i18next';
+
+const { t } = useTranslation('sales');
 
 const ChecklistOverview = () => {
   return (
@@ -10,7 +13,7 @@ const ChecklistOverview = () => {
         <Filter.BarButton filterKey="status">
           <div className="flex items-center gap-1">
             <IconListCheck size={16} />
-            Add new checklist
+            {t('add-new-checklist')}
           </div>
         </Filter.BarButton>
       </Popover.Trigger>

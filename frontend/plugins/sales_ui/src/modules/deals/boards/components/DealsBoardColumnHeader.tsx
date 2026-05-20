@@ -16,6 +16,8 @@ import { PrintDialog } from './common/Print';
 import { useDealsArchive } from '@/deals/cards/hooks/useDeals';
 import { useSetAtom } from 'jotai';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 
 type Props = {
   column: BoardDealColumn;
@@ -86,6 +88,8 @@ export const DealsBoardColumnHeader = ({
     });
     setShowSortOptions(false);
   };
+
+  const { t } = useTranslation('sales');
 
   const SortMenu = () => (
     <>
@@ -182,7 +186,7 @@ export const DealsBoardColumnHeader = ({
                         setShowPrintDialog(true);
                       }}
                     >
-                      Print Document
+                      {t('print-document')}
                       <DropdownMenu.Shortcut>⌘T</DropdownMenu.Shortcut>
                     </DropdownMenu.Item>
                   </DropdownMenu.Group>

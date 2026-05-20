@@ -12,6 +12,7 @@ import { SelectLabels } from '@/deals/components/common/filters/SelectLabel';
 import { SelectDealPriority } from '@/deals/components/deal-selects/SelectDealPriority';
 import { IDeal } from '@/deals/types/deals';
 import { useDealsContext } from '@/deals/context/DealContext';
+import { useTranslation } from 'react-i18next';
 
 export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
   const { editDeals } = useDealsContext();
@@ -20,6 +21,8 @@ export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
     string | undefined
   >(undefined);
   const [debouncedDescription] = useDebounce(descriptionContent, 1000);
+
+  const { t } = useTranslation('sales');
 
   const handleDealFieldChange = useCallback(
     (key: string, value: string | string[] | undefined | null) => {
@@ -66,7 +69,7 @@ export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
     <>
       <div className="grid grid-cols-2 gap-4 py-4">
         <div className="space-y-2">
-          <Label>Due date</Label>
+          <Label>{t('due-date')}</Label>
           <div className="flex items-center">
             <DateSelectDeal
               value={startDate}
@@ -84,7 +87,7 @@ export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
           </div>
         </div>
         <div className="space-y-2">
-          <Label>Assigned to</Label>
+          <Label>{t('assigned-to')}</Label>
           <SelectMember
             value={assignedUserIds}
             onValueChange={(value) =>
@@ -95,7 +98,7 @@ export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
           />
         </div>
         <div className="space-y-2">
-          <Label>Label</Label>
+          <Label>{t('label')}</Label>
           <div className="flex flex-wrap items-center gap-1">
             <SelectLabels.FilterBar
               filterKey=""
@@ -117,7 +120,7 @@ export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
           </div>
         </div>
         <div className="space-y-2 flex-col">
-          <Label>Priority</Label>
+          <Label>{t('priority')}</Label>
           <div>
             <SelectDealPriority
               dealId={_id}
@@ -127,7 +130,7 @@ export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
           </div>
         </div>
         <div className="space-y-2">
-          <Label>Tags</Label>
+          <Label>{t('tags')}</Label>
           <SelectTags
             tagType="sales:deal"
             mode="multiple"
@@ -138,7 +141,7 @@ export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
           />
         </div>
         <div className="space-y-2">
-          <Label>Branches</Label>
+          <Label>{t('branches')}</Label>
           <SelectBranches.ComboboxItem
             value={branchIds}
             onValueChange={(value) => {
@@ -148,7 +151,7 @@ export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
           />
         </div>
         <div className="space-y-2">
-          <Label>Departments</Label>
+          <Label>{t('departments')}</Label>
           <SelectDepartments.ComboboxItem
             mode="multiple"
             value={departmentIds}
@@ -159,9 +162,9 @@ export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
         </div>
       </div>
       <div className="space-y-2">
-        <Label>Description</Label>
+        <Label>{t('description')}</Label>
         <Editor
-          initialContent={deal.description || []}
+          initialContent={deal.description || ''}
           onChange={(content) => {
             setDescriptionContent(content);
           }}

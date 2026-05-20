@@ -18,6 +18,8 @@ import { IconGripVertical } from '@tabler/icons-react';
 import { useColumnLoading } from '@/deals/states/dealsBoardState';
 import { useDroppable } from '@dnd-kit/core';
 import { useVirtualizer } from '@tanstack/react-virtual';
+import { useTranslation } from 'react-i18next';
+
 
 const ESTIMATED_CARD_HEIGHT = 100;
 const SCROLL_THRESHOLD = 200;
@@ -173,6 +175,7 @@ function VirtualizedCardListInner<TItem extends BaseBoardItem>({
   }, [handleScroll]);
 
   const itemIds = items.map((item) => item._id);
+  const { t } = useTranslation('sales');
 
   return (
     <div
@@ -220,7 +223,7 @@ function VirtualizedCardListInner<TItem extends BaseBoardItem>({
             ${isOver ? 'border-primary bg-primary/5' : 'border-muted'}
           `}
         >
-          Drop cards here!
+          {t('drop-cards-here')}
         </div>
       )}
     </div>

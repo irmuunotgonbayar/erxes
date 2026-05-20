@@ -21,6 +21,9 @@ import { dealDetailSheetState } from '@/deals/states/dealDetailSheetState';
 import { useAtom } from 'jotai';
 import { useDealCustomFieldEdit } from '../../hooks/useDealCustomFieldEdit';
 import { useDealDetail } from '@/deals/cards/hooks/useDeals';
+import { useTranslation } from 'react-i18next';
+
+const { t } = useTranslation('sales');
 
 export const SalesItemDetail = () => {
   const [activeDealId, setActiveDealId] = useAtom(dealDetailSheetState);
@@ -133,9 +136,9 @@ const SalesItemDetailEmptyState = () => {
           <Empty.Media variant="icon">
             <IconCloudExclamation />
           </Empty.Media>
-          <Empty.Title>Deal not found</Empty.Title>
+          <Empty.Title>{t('deal-not-found')}</Empty.Title>
           <Empty.Description>
-            There seems to be no deal with this ID.
+            {t('no-deal-with-id')}
           </Empty.Description>
         </Empty.Header>
       </Empty>
@@ -153,7 +156,7 @@ const SalesItemDetailErrorState = () => {
           <Empty.Media variant="icon">
             <IconAlertCircle />
           </Empty.Media>
-          <Empty.Title>Error</Empty.Title>
+          <Empty.Title>{t('error')}</Empty.Title>
           <Empty.Description>{error?.message}</Empty.Description>
         </Empty.Header>
       </Empty>

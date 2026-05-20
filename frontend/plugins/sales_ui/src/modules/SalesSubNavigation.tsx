@@ -18,7 +18,6 @@ import { useBoards } from '~/modules/deals/boards/hooks/useBoards';
 import { useEffect } from 'react';
 import { usePipelines } from '@/deals/boards/hooks/usePipelines';
 import { useTranslation } from 'react-i18next';
-import { T } from 'react-router/dist/development/fog-of-war-oa9CGk10';
 
 function LoadingSkeleton() {
   return (

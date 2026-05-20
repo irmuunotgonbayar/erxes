@@ -5,6 +5,7 @@ import { IProductData } from 'ui-modules';
 import { IconTrash } from '@tabler/icons-react';
 import { atom } from 'jotai';
 import { useRemoveProducts } from '../hooks/useRemoveProduct';
+import { useTranslation } from 'react-i18next';
 
 export const renderingProductDetailAtom = atom(false);
 const confirmOptions = { confirmationValue: 'delete' };
@@ -35,6 +36,8 @@ export const ProductMoreColumnCell = ({
     });
   };
 
+  const { t } = useTranslation('sales');
+
   return (
     <Popover>
       <Popover.Trigger asChild>
@@ -48,7 +51,7 @@ export const ProductMoreColumnCell = ({
               value="remove"
               onSelect={onRemove}
             >
-              <IconTrash /> Delete
+              <IconTrash /> {t('delete')}
             </Command.Item>
           </Command.List>
         </Command>

@@ -33,6 +33,7 @@ import {
 import { IPipeline } from '@/deals/types/pipelines';
 import { PipelineCommandBar } from './PipelineCommandBar';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const PipelineMoreColumnCell = ({
   cell,
@@ -102,6 +103,7 @@ export const PipelineMoreColumnCell = ({
       }
     });
   };
+  const { t } = useTranslation('sales');
 
   return (
     <Popover>
@@ -115,19 +117,19 @@ export const PipelineMoreColumnCell = ({
               value="edit"
               onSelect={() => setOpen({ pipelineId: _id, tab: null })}
             >
-              <IconEdit /> Edit
+              <IconEdit /> {t('edit')}
             </Command.Item>
             <Command.Item value="duplicate" onSelect={onDuplicate}>
-              <IconCopy /> Duplicate
+              <IconCopy /> {t('duplicate')}
             </Command.Item>
             <Command.Item value="archive" onSelect={onArchive}>
               {status === 'active' ? (
                 <>
-                  <IconArchive /> Archive
+                  <IconArchive /> {t('archive')}
                 </>
               ) : (
                 <>
-                  <IconArrowBack /> Unarchive
+                  <IconArrowBack /> {t('unarchive')}
                 </>
               )}
             </Command.Item>
@@ -137,14 +139,14 @@ export const PipelineMoreColumnCell = ({
                 setOpen({ pipelineId: _id, tab: 'productConfig' });
               }}
             >
-              <IconSettings /> Product config
+              <IconSettings /> {t('product-config')}
             </Command.Item>
             <Command.Item
               disabled={removeLoading}
               value="remove"
               onSelect={onRemove}
             >
-              <IconTrash /> Delete
+              <IconTrash /> {t('delete')}
             </Command.Item>
           </Command.List>
         </Command>

@@ -2,6 +2,7 @@ import { Button, useConfirm } from 'erxes-ui';
 
 import { IconTrash } from '@tabler/icons-react';
 import { useRemoveProducts } from '../hooks/useRemoveProduct';
+import { useTranslation } from 'react-i18next';
 
 export const ProductsDelete = ({
   productIds,
@@ -15,6 +16,7 @@ export const ProductsDelete = ({
   const { confirm } = useConfirm();
   const { removeProducts } = useRemoveProducts();
   const processId = localStorage.getItem('processId') || '';
+  const { t } = useTranslation('sales');
 
   return (
     <Button
@@ -40,7 +42,7 @@ export const ProductsDelete = ({
       }
     >
       <IconTrash />
-      Delete
+      {t('delete')}
     </Button>
   );
 };

@@ -8,6 +8,7 @@ import {
 
 import { Form } from 'erxes-ui';
 import { UseFormReturn } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 interface ProductConfigFormValues {
   numberSize?: string;
@@ -24,6 +25,8 @@ interface ProductConfigProps {
   form: UseFormReturn<ProductConfigFormValues>;
 }
 
+const { t } = useTranslation('sales');
+
 const ProductConfig = ({ form }: ProductConfigProps) => {
   const { control } = form;
 
@@ -32,7 +35,7 @@ const ProductConfig = ({ form }: ProductConfigProps) => {
       <div>
         <div className="mb-6">
           <h3 className="text-base font-semibold text-foreground">
-            Initial Product Categories
+            {t('initial-product-categories')}
           </h3>
         </div>
         <Form.Field
@@ -57,7 +60,7 @@ const ProductConfig = ({ form }: ProductConfigProps) => {
       <div>
         <div className="mb-6">
           <h3 className="text-base font-semibold text-foreground">
-            Pipeline Exclude Products
+            {t('pipeline-exclude-products')}
           </h3>
         </div>
         <div className="space-y-6">
@@ -67,7 +70,7 @@ const ProductConfig = ({ form }: ProductConfigProps) => {
             render={({ field }) => (
               <Form.Item>
                 <Form.Label className="text-sm font-medium">
-                  Exclude Categories
+                  {t('exclude-categories')}
                 </Form.Label>
                 <SelectCategory
                   selected={field.value?.[0] || ''}
@@ -88,7 +91,7 @@ const ProductConfig = ({ form }: ProductConfigProps) => {
             render={({ field }) => (
               <Form.Item>
                 <Form.Label className="text-sm font-medium">
-                  Exclude Products
+                  {t('exclude-products')}
                 </Form.Label>
                 <SelectProduct
                   mode="multiple"
@@ -104,7 +107,7 @@ const ProductConfig = ({ form }: ProductConfigProps) => {
       <div>
         <div className="mb-6">
           <h3 className="text-base font-semibold text-foreground">
-            Other Configuration
+            {t('other-configuration')}
           </h3>
         </div>
         <div className="space-y-6">

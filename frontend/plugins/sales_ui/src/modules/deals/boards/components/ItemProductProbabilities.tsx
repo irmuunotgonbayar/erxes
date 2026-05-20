@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { IDeal } from '@/deals/types/deals';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   totalAmount?: Record<string, number>;
@@ -78,15 +79,17 @@ const ItemProductProbabilities: FC<Props> = ({
     : 0;
 
   if (totalAmount) {
+    const { t } = useTranslation('sales');
+
     return (
       <div className="mb-2 w-full px-1">
         {totalAmount && Object.keys(totalAmount).length !== 0 && (
-          <AmountRow label="Total" amounts={totalAmount} />
+          <AmountRow label={t('total')} amounts={totalAmount} />
         )}
 
         {unusedTotalAmount && Object.keys(unusedTotalAmount).length > 0 && (
           <AmountRow
-            label="Unused Total"
+            label={t('unused-total')}
             amounts={unusedTotalAmount}
             isUnused
           />
@@ -94,7 +97,7 @@ const ItemProductProbabilities: FC<Props> = ({
 
         {probability && (
           <AmountRow
-            label={`Forecasted (${probabilityPercentage}%)`}
+            label={t('forecasted', { percentage: probabilityPercentage })}
             amounts={totalAmount}
             percentMultiplier={probabilityPercentage}
           />
@@ -110,9 +113,10 @@ const ItemProductProbabilities: FC<Props> = ({
     }),
   );
 
+  const { t } = useTranslation('sales');
   return (
     <div className="mb-2">
-      <AmountRow label="Total" amounts={sumByName} showComma />
+      <AmountRow label={t('total')} amounts={sumByName} showComma />
     </div>
   );
 };

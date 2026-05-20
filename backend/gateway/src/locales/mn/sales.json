@@ -17,5 +17,11 @@
   "pos-create-slots-failed": "ПОС үүссэн боловч slot-уудыг хадгалж чадсангүй",
   "pos-create-success": "ПОС амжилттай үүслээ",
   "pos-create-failed": "ПОС үүсгэж чадсангүй. Дахин оролдоно уу",
-  "deals": "Хэлцэл"
+  "deals": "Хэлцэл",
+  "no-pipelines": "Дамжлага байхгүй",
+  "manage-board-pipelines": "Самбар & дамжлага удирдах",
+  "copy-link": "Холбоос хуулах",
+  "boards": "Самбарууд",
+  "pipelines": "Дамжлагууд"
+
 }

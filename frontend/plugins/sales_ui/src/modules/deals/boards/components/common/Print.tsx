@@ -14,6 +14,7 @@ import { SelectBranches, SelectBrand, SelectDepartments } from 'ui-modules';
 import { useDeals } from '@/deals/cards/hooks/useDeals';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   open: boolean;
@@ -83,19 +84,21 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
     }
   };
 
+  const { t } = useTranslation('sales');
+
   return (
     <Dialog open={open} onOpenChange={() => onClose()}>
       <Dialog.Content className="sm:max-w-[700px]">
         <Form {...form}>
           <form>
             <Dialog.Header>
-              <Dialog.Title>Print Document</Dialog.Title>
+              <Dialog.Title>{t('print-document')}</Dialog.Title>
             </Dialog.Header>
 
             <div className="grid grid-cols-2 gap-x-8 gap-y-4 py-4">
               <div className="space-y-4">
                 <div className="space-y-1">
-                  <Label>COPIES</Label>
+                  <Label>{t('copies')}</Label>
                   <Form.Field
                     name="copies"
                     render={({ field }) => (
@@ -114,7 +117,7 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
                 </div>
 
                 <div className="space-y-1">
-                  <Label>WIDTH</Label>
+                  <Label>{t('width')}</Label>
                   <Form.Field
                     name="width"
                     render={({ field }) => (
@@ -132,7 +135,7 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
                 </div>
 
                 <div className="space-y-1">
-                  <Label>BRAND</Label>
+                  <Label>{t('brand')}</Label>
                   <Form.Field
                     name="brandId"
                     render={({ field }) => (
@@ -153,7 +156,7 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
                     name="branchId"
                     render={({ field }) => (
                       <Form.Item>
-                        <Form.Label>Branches</Form.Label>
+                        <Form.Label>{t('branches')}</Form.Label>
                         <SelectBranches.FormItem
                           onValueChange={field.onChange}
                           value={field.value}
@@ -170,7 +173,7 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
                     name="departmentId"
                     render={({ field }) => (
                       <Form.Item>
-                        <Form.Label>Department</Form.Label>
+                        <Form.Label>{t('department')}</Form.Label>
                         <SelectDepartments.FormItem
                           mode="single"
                           value={field.value}
@@ -187,7 +190,7 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
                     name="documentType"
                     render={({ field }) => (
                       <Form.Item>
-                        <Form.Label>SELECT A DOCUMENT</Form.Label>
+                        <Form.Label>{t('select-document')}</Form.Label>
                         <Select
                           value={field.value}
                           onValueChange={field.onChange}
@@ -196,7 +199,7 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
                             <Select.Value />
                           </Select.Trigger>
                           <Select.Content>
-                            <Select.Item value="sales">sales</Select.Item>
+                            <Select.Item value="sales">{t('sales')}</Select.Item>
                           </Select.Content>
                         </Select>
                       </Form.Item>
@@ -210,8 +213,8 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
               <Table>
                 <Table.Header>
                   <Table.Row>
-                    <Table.Head className="w-1/4">Number</Table.Head>
-                    <Table.Head className="w-3/4">Name</Table.Head>
+                    <Table.Head className="w-1/4">{t('number')}</Table.Head>
+                    <Table.Head className="w-3/4">{t('name')}</Table.Head>
                     <Table.Head className="w-[50px]"></Table.Head>
                   </Table.Row>
                 </Table.Header>
@@ -243,7 +246,7 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
                         colSpan={3}
                         className="text-center text-muted-foreground"
                       >
-                        No deals found in this stage
+                        {t('no-deals-in-stage')}
                       </Table.Cell>
                     </Table.Row>
                   )}
@@ -254,11 +257,11 @@ export const PrintDialog = ({ open, onClose, stageId }: Props) => {
             <Dialog.Footer className="mt-6">
               <Dialog.Close asChild>
                 <Button type="button" variant="outline">
-                  Cancel
+                  {t('cancel')}
                 </Button>
               </Dialog.Close>
               <Button type="button" onClick={() => print()}>
-                Print
+                {t('print')}
               </Button>
             </Dialog.Footer>
           </form>
