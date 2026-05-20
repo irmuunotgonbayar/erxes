@@ -12,7 +12,6 @@ import { SelectLabels } from '@/deals/components/common/filters/SelectLabel';
 import { SelectDealPriority } from '@/deals/components/deal-selects/SelectDealPriority';
 import { IDeal } from '@/deals/types/deals';
 import { useDealsContext } from '@/deals/context/DealContext';
-import { useTranslation } from 'react-i18next';
 
 export const SalesFormFields = ({ deal }: { deal: IDeal }) => {
   const { editDeals } = useDealsContext();

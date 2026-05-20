@@ -5,7 +5,6 @@ import { dealCreateDefaultValuesState } from '@/deals/states/dealCreateSheetStat
 import { useEffect } from 'react';
 import { useSetAtom } from 'jotai';
 import { useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 
 const WorkflowFields = ({ control }: { control: any }) => {
   const [boardId, pipelineId, stageId] = useWatch({

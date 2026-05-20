@@ -4,7 +4,6 @@ import { Button } from 'erxes-ui';
 import { IAttachment } from '@/deals/types/attachments';
 import { useAttachmentContext } from './AttachmentContext';
 import { useDealsContext } from '@/deals/context/DealContext';
-import { useTranslation } from 'react-i18next';
 
 const FileAttachments = ({ attachments }: { attachments: IAttachment[] }) => {
   const { handleRemoveImage, removingUrl } = useAttachmentContext();

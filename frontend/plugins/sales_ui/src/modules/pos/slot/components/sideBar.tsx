@@ -3,7 +3,6 @@ import { Badge, Button, ScrollArea } from 'erxes-ui';
 import { IconPlus } from '@tabler/icons-react';
 import { SidebarListProps } from '../types';
 import SlotCard from './slotCard';
-import { useTranslation } from 'react-i18next';
 
 const SidebarList: React.FC<SidebarListProps> = ({
   nodes,

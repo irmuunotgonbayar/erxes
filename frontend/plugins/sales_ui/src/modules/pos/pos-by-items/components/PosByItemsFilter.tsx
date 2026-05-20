@@ -31,7 +31,6 @@ import { SelectCategories } from './selects/SelectCategories';
 import { SelectCustomers } from './selects/SelectCustomers';
 import { SelectCompanies } from './selects/SelectCompanies';
 import { SelectUsers } from './selects/SelectPosUsers';
-import { useTranslation } from 'react-i18next';
 
 export const PosByItemsFilterPopover = () => {
   const [queries] = useMultiQueryState<{

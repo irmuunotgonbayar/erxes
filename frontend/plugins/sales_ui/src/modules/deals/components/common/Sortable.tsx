@@ -37,7 +37,6 @@ import { IconFolderCancel } from '@tabler/icons-react';
 import { Item } from './Item';
 import { List } from './List';
 import { createPortal } from 'react-dom';
-import { useTranslation } from 'react-i18next';
 
 export interface Props {
   activationConstraint?: PointerActivationConstraint;

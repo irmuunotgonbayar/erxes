@@ -8,7 +8,6 @@ import {
   IconLayoutSidebarRightExpand,
 } from '@tabler/icons-react';
 import { NodeControlsProps } from '../types';
-import { useTranslation } from 'react-i18next';
 
 const NodeControls = React.forwardRef<HTMLButtonElement, NodeControlsProps>(
   (

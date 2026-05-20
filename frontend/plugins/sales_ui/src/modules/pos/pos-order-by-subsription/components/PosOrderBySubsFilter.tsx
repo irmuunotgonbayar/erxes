@@ -13,7 +13,6 @@ import { usePosOrderBySubsLeadSessionKey } from '../hooks/usePosOrderBySubsLeadS
 import { PosOrderBySubsTotalCount } from './PosOrderBySubsTotalCount';
 import { PosOrderBySubsHotKeyScope } from '../types/path/PosOrderBySubsHotKeyScope';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export const PosOrderBySubsFilterPopover = () => {
   const [queries] = useMultiQueryState<{

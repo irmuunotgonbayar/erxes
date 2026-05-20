@@ -12,7 +12,6 @@ import { onLocalChangeAtom } from '../productTableAtom';
 import { useDealsCreateProductsData } from '../hooks/useDealsCreateProductsData';
 import { useDealsEdit } from '@/deals/cards/hooks/useDeals';
 import { useProductCalculations } from '../hooks/useProductCalculations';
-import { useTranslation } from 'react-i18next';
 
 const ProductsList = ({
   products,

@@ -31,7 +31,6 @@ import { PosSummaryTotalCount } from './PosSummaryTotalCount';
 import { SelectCustomers } from '../components/selects/SelectCustomers';
 import { SelectCompanies } from '../components/selects/SelectCompanies';
 import { SelectUsers } from '../components/selects/SelectPosUsers';
-import { useTranslation } from 'react-i18next';
 
 export const PosSummaryFilterPopover = () => {
   const [queries] = useMultiQueryState<{

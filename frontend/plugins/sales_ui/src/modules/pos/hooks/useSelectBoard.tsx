@@ -8,7 +8,6 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 import { IBoard } from '@/deals/types/boards';
 import { useBoards } from '~/modules/deals/boards/hooks/useBoards';
-import { useTranslation } from 'react-i18next';
 
 // SelectBoard Context
 interface SelectBoardContextType {

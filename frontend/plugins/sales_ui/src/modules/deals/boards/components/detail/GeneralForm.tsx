@@ -9,7 +9,6 @@ import {
 import { useRef, useState } from 'react';
 
 import PipelineConfig from '@/deals/pipelines/components/PipelineConfig';
-import { useTranslation } from 'react-i18next';
 
 const VISIBILITY_TYPES = [
   { value: 'public', label: 'Public' },

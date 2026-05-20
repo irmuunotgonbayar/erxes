@@ -29,7 +29,6 @@ import { SelectStatus } from './selects/SelectStatus';
 import { SelectExcludeStatus } from './selects/SelectExcludeStatus';
 import { PosItemsTotalCount } from './PosItemsTotalCount';
 import { SelectUsers } from './selects/SelectPosUsers';
-import { useTranslation } from 'react-i18next';
 
 export const PosItemsFilterPopover = () => {
   const [queries] = useMultiQueryState<{

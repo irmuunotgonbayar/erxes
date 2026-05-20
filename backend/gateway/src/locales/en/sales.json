@@ -16,5 +16,11 @@
   "pos-create-product-groups-failed": "POS created but failed to save product groups. You can add them later.",
   "pos-create-slots-failed": "POS created but failed to save slots. You can add them later.",
   "pos-create-success": "POS created successfully.",
-  "pos-create-failed": "Failed to create POS. Please try again."
+  "pos-create-failed": "Failed to create POS. Please try again.",
+  "deals": "Deals",
+  "no-pipelines": "No Pipelines",
+  "manage-board-pipelines": "Manage board & pipelines",
+  "copy-link": "Copy link",
+  "boards": "Boards",
+  "pipelines": "Pipelines"
 }

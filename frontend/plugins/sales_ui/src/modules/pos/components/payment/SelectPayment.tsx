@@ -17,7 +17,6 @@ import {
 import { Payment, usePayments } from '@/pos/hooks/usePayments';
 import React, { useState } from 'react';
 import { useDebounce } from 'use-debounce';
-import { useTranslation } from 'react-i18next';
 
 const SelectPaymentProvider = ({
   children,

@@ -25,7 +25,6 @@ import {
   SelectTriggerVariantType,
 } from './SelectShared';
 import { GROUP_TYPE_DATA } from '../../constants/groupTypeData';
-import { useTranslation } from 'react-i18next';
 
 interface IGroupType {
   value: string;

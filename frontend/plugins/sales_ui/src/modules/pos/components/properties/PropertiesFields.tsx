@@ -8,7 +8,6 @@ import {
 import { SelectBranches, SelectBrand, SelectDepartments } from 'ui-modules';
 import { Control } from 'react-hook-form';
 import { ALLOW_TYPES } from '@/pos/constants';
-import { useTranslation } from 'react-i18next';
 
 export interface FormData {
   name: string;

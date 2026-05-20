@@ -2,7 +2,6 @@ import { Skeleton } from 'erxes-ui';
 import { useBoardPipelineStageInlineText } from '../hooks/useBoardPipelineStageInlineText';
 import { AutomationNodeMetaInfoRow } from 'ui-modules';
 import { TSalesActionConfigForm } from '../states/salesActionConfigFormDefinitions';
-import { useTranslation } from 'react-i18next';
 
 export const BoardPipelineStageInlineText = ({
   config,
