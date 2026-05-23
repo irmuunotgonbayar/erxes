@@ -63,10 +63,18 @@
   "select-status": "Select status",
   "search-status": "Search status",
 
+  "count": "Count",
+  "city-tax": "City Tax",
+  "vat": "Vat",
+  "no-by-date": "No by date",
+  "create-first-by-date": "Get started by creating your first by date.",
+
   "// --- Messages ---": "",
   "error": "Error",
   "records-found_one": "{{count}} record found",
   "records-found_other": "{{count}} records found",
   "delete-put-response-confirm_one": "Are you sure you want to delete the 1 selected put response?",
-  "delete-put-response-confirm_other": "Are you sure you want to delete the {{count}} selected put responses?"
+  "delete-put-response-confirm_other": "Are you sure you want to delete the {{count}} selected put responses?",
+  "delete-by-date-confirm_one": "Are you sure you want to delete the 1 selected by date?",
+  "delete-by-date-confirm_other": "Are you sure you want to delete the {{count}} selected by dates?"
 }
